@@ -1,0 +1,35 @@
+{
+  "name": "angular2-safe-provider",
+  "version": "0.0.1",
+  "description": "A typesafe way to create Angular 2 providers",
+  "main": "./build/index.js",
+  "typings": "./build/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/tygern/angular2-safe-provider"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typings": "typings"
+  },
+  "keywords": [
+    "angular",
+    "provider",
+    "angular",
+    "2",
+    "angular2"
+  ],
+  "author": {
+    "name": "Tyson Gern",
+    "email": "tygern@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "angular2": ">=2.0.0-beta",
+    "es6-shim": ">=0.35.0",
+    "rxjs": ">=5.0.0-beta"
+  },
+  "devDependencies": {
+    "typings": "^0.8.1"
+  }
+}

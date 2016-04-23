@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "./build",
+    "sourceMap": true,
+    "declaration": true
+  },
+  "exclude": [
+    "node_modules",
+    "typings/main",
+    "typings/main.d.ts",
+    "build"
+  ]
+}
