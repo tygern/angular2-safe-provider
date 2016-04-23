@@ -19,10 +19,7 @@
     "2",
     "angular2"
   ],
-  "author": {
-    "name": "Tyson Gern",
-    "email": "tygern@gmail.com"
-  },
+  "author": "Tyson Gern <tygern@gmail.com> (tygern.com)",
   "license": "MIT",
   "dependencies": {
     "angular2": ">=2.0.0-beta",
