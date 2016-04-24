@@ -9,7 +9,7 @@
     "url": "http://github.com/tygern/angular2-safe-provider"
   },
   "scripts": {
-    "build": "tsc",
+    "prepublish": "tsc",
     "typings": "typings"
   },
   "keywords": [
