@@ -1,4 +1,4 @@
-# Angular 2 safe provider
+# Safe provide
 
 A typesafe way to inject implementations for Typescript interfaces in 
 Angular 2.
@@ -14,11 +14,11 @@ satisfies the given interface. Consider the following example:
     provide(UserProviderToken, {useClass: HttpUserProvider});
     
 Interface information is lost after Typescript compilation. This means 
-that no check is performed that `UserProvider` implements 
-`HttpUserProvider`. The error only shows up in integration tests (or at
+that no check is performed that `HttpUserProvider` implements 
+`UserProvider`. The error only shows up in integration tests (or at
 runtime if test coverage is poor). 
  
-When using `angular2-safe-provider`'s `safeProvide` we get a 
+When using `safe-provide`'s `safeProvide` we get a 
 compile-time check that `HttpUserProvider` implements `UserProvider`. 
  
     safeProvide<UserProvider>(UserProviderToken)<HttpUserProvider>(HttpUserProvider);
@@ -27,7 +27,7 @@ compile-time check that `HttpUserProvider` implements `UserProvider`.
 
 1. Install package.
         
-        $ npm install angular2-safe-provider --save
+        $ npm install safe-provide --save
 
 1. Create an [OpaqueToken](https://angular.io/docs/js/latest/api/core/OpaqueToken-class.html)
 for your interface.
@@ -43,7 +43,8 @@ for your interface.
 1. Create a safe provider.
         
         // main.ts
-        import {safeProvide} from "angular2-safe-provider";
+        
+        import {safeProvide} from "safe-provide";
         
         bootstrap(AppComponent, [
             safeProvide<UserProvider>(UserProviderToken)<HttpUserProvider>(HttpUserProvider)
@@ -56,6 +57,7 @@ for your interface.
 1. Inject the `UserProvider` using the `OpaqueToken`.
 
         // userComponent.ts
+        
         @Component({
             // configuration
         })
@@ -66,7 +68,7 @@ for your interface.
  
 ## More examples
 
-You can see an example project using `angular2-safe-provider` 
+You can see an example project using `safe-provide` 
 [here](https://github.com/tygern/mendota).
 
 ## Build instructions

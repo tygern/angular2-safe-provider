@@ -1,5 +1,5 @@
 {
-  "name": "angular2-safe-provider",
+  "name": "safe-provide",
   "version": false,
   "dependencies": {},
   "ambientDependencies": {
