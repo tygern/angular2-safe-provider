@@ -14,10 +14,16 @@
   },
   "keywords": [
     "angular",
+    "angular2",
     "provider",
+    "provide",
+    "inject",
     "angular",
-    "2",
-    "angular2"
+    "typescript",
+    "typesafe",
+    "safe",
+    "dependency",
+    "injection"
   ],
   "author": "Tyson Gern <tygern@gmail.com> (tygern.com)",
   "license": "MIT",
