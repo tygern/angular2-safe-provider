@@ -21,7 +21,7 @@ runtime if test coverage is poor).
 When using `safe-provide`'s `safeProvide` we get a 
 compile-time check that `HttpUserProvider` implements `UserProvider`. 
  
-    safeProvide<UserProvider>(UserProviderToken)<HttpUserProvider>(HttpUserProvider);
+    safeProvide<UserProvider>(UserProviderToken).useClass(HttpUserProvider);
     
 ## Usage
 
@@ -47,7 +47,7 @@ for your interface.
         import {safeProvide} from "safe-provide";
         
         bootstrap(AppComponent, [
-            safeProvide<UserProvider>(UserProviderToken)<HttpUserProvider>(HttpUserProvider)
+            safeProvide<UserProvider>(UserProviderToken).useClass(HttpUserProvider)
         ]);
     The `safeProvide` can be used anywhere angular allows providers. 
     Unlike with the Angular `provide` function, Compilation will fail if 
