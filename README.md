@@ -52,7 +52,13 @@ for your interface.
     The `safeProvide` can be used anywhere angular allows providers. 
     Unlike with the Angular `provide` function, Compilation will fail if 
     the `HttpUserProvider` does not implicitly or explicitly implement 
-    `UserProvider`. 
+    `UserProvider`. We also have the option of providing a value
+    
+        safeProvide<UserProvider>(UserProviderToken).useValue(new HttpUserProvider())
+        
+    or a factory
+    
+        safeProvide<UserProvider>(UserProviderToken).useFactory(userProviderFactory)
 
 1. Inject the `UserProvider` using the `OpaqueToken`.
 
