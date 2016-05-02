@@ -1,6 +1,14 @@
-import {provide, OpaqueToken, Provider} from "angular2/core";
+import {provide, Provider} from "angular2/core";
 
-export function safeProvide<T>(token:OpaqueToken) {
+export class SafeToken<T> {
+    constructor(private name: string){}
+
+    toString() {
+        return `Token ${this.name}`
+    }
+}
+
+export function safeProvide<T>(token:SafeToken<T>) {
 
     return {
         useClass<U extends T>(Klass:{new(...args:any[]):U;}): Provider {

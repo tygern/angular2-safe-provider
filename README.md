@@ -21,46 +21,49 @@ runtime if test coverage is poor).
 When using `safe-provide`'s `safeProvide` we get a 
 compile-time check that `HttpUserProvider` implements `UserProvider`. 
  
-    safeProvide<UserProvider>(UserProviderToken).useClass(HttpUserProvider);
+    safeProvide(UserProviderToken).useClass(HttpUserProvider);
     
 ## Usage
+
+In the following example we configure angular to inject an instance of 
+the `HttpUserProvider` class for the `UserProvider` interface. 
 
 1. Install package.
         
         $ npm install safe-provide --save
 
-1. Create an [OpaqueToken](https://angular.io/docs/js/latest/api/core/OpaqueToken-class.html)
-for your interface.
+1. Create a `SafeToken` for your interface.
 
-        // userProvider.ts
+        // main.ts
         
-        export const UserProviderToken = new OpaqueToken("UserProvider");
+        import {SafeToken} from "safe-provide";
         
-        export interface UserProvider {
-            fetchList():Observable<User[]>
-        }
-
-1. Create a safe provider.
+        export const UserProviderToken = new SafeToken<UserProvider>("UserProvider");
+        
+1. Configure a provider using `safeProvide`.
         
         // main.ts
         
-        import {safeProvide} from "safe-provide";
+        import {safeProvide, SafeToken} from "safe-provide";
+        
+        export const UserProviderToken = new SafeToken<UserProvider>("UserProvider");
         
         bootstrap(AppComponent, [
-            safeProvide<UserProvider>(UserProviderToken).useClass(HttpUserProvider)
+            safeProvide(UserProviderToken).useClass(HttpUserProvider)
         ]);
     The `safeProvide` can be used anywhere angular allows providers. 
-    Unlike with the Angular `provide` function, Compilation will fail if 
+    Unlike with the Angular `provide` function, compilation will fail if 
     the `HttpUserProvider` does not implicitly or explicitly implement 
     `UserProvider`. We also have the option of providing a value
     
-        safeProvide<UserProvider>(UserProviderToken).useValue(new HttpUserProvider())
+        safeProvide(UserProviderToken).useValue(new HttpUserProvider())
         
-    or a factory
+    or a factory function that returns an `HttpUserProvider`.
     
-        safeProvide<UserProvider>(UserProviderToken).useFactory(userProviderFactory)
+        safeProvide(UserProviderToken).useFactory(userProviderFactory)
 
-1. Inject the `UserProvider` using the `OpaqueToken`.
+1. Inject the `UserProvider` by passing the `SafeToken` to `@Inject`.
+
 
         // userComponent.ts
         
