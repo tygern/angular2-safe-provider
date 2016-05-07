@@ -28,9 +28,11 @@
   "author": "Tyson Gern <tygern@gmail.com> (tygern.com)",
   "license": "MIT",
   "dependencies": {
-    "angular2": ">=2.0.0-beta",
-    "es6-shim": ">=0.35.0",
-    "rxjs": ">=5.0.0-beta"
+    "@angular/core":  "2.0.0-rc.0",
+    "es6-shim": "^0.35.0",
+    "rxjs": "5.0.0-beta.6",
+    "reflect-metadata": "^0.1.3",
+    "zone.js": "^0.6.12"
   },
   "devDependencies": {
     "typings": "^0.8.1"

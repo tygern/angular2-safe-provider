@@ -1,4 +1,4 @@
-import {provide, Provider} from "angular2/core";
+import {provide, Provider} from "@angular/core";
 
 export class SafeToken<T> {
     constructor(private name: string){}
