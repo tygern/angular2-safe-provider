@@ -34,7 +34,7 @@ the `HttpUserProvider` class for the `UserProvider` interface.
 
 1. Create a `SafeToken` for your interface.
 
-        // main.ts
+        // userProvider.ts
         
         import {SafeToken} from "safe-provide";
         
@@ -45,8 +45,6 @@ the `HttpUserProvider` class for the `UserProvider` interface.
         // main.ts
         
         import {safeProvide, SafeToken} from "safe-provide";
-        
-        export const UserProviderToken = new SafeToken<UserProvider>("UserProvider");
         
         bootstrap(AppComponent, [
             safeProvide(UserProviderToken).useClass(HttpUserProvider)
@@ -78,7 +76,7 @@ the `HttpUserProvider` class for the `UserProvider` interface.
 ## More examples
 
 You can see an example project using `safe-provide` 
-[here](https://github.com/tygern/mendota).
+[here](https://github.com/tygern/hudson).
 
 ## Build instructions
 ```
