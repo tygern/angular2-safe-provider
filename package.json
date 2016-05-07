@@ -1,6 +1,6 @@
 {
   "name": "safe-provide",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A typesafe way to create Angular 2 providers",
   "main": "./build/index.js",
   "typings": "./build/index.d.ts",
@@ -28,7 +28,7 @@
   "author": "Tyson Gern <tygern@gmail.com> (tygern.com)",
   "license": "MIT",
   "dependencies": {
-    "@angular/core":  "2.0.0-rc.0",
+    "@angular/core": "2.0.0-rc.0",
     "es6-shim": "^0.35.0",
     "rxjs": "5.0.0-beta.6",
     "reflect-metadata": "^0.1.3",
