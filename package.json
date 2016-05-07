@@ -1,6 +1,6 @@
 {
   "name": "safe-provide",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A typesafe way to create Angular 2 providers",
   "main": "./build/index.js",
   "typings": "./build/index.d.ts",
