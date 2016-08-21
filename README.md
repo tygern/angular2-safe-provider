@@ -5,20 +5,20 @@ Angular 2.
 
 ## Why is this needed?
 
-Angular's `provide` function allows the user to configure how the 
+Angular's allows the user to configure how the 
 injector will instantiate a token. This is commonly used to inject an
 implementation class when a component requires an interface to be 
-injected. However, `provide` does not check that the implementation
+injected. However, Angular does not check that the implementation
 satisfies the given interface. Consider the following example:
 
-    provide(UserProviderToken, {useClass: HttpUserProvider});
+    {provide: UserProviderToken, useClass: HttpUserProvider}
     
 Interface information is lost after Typescript compilation. This means 
 that no check is performed that `HttpUserProvider` implements 
 `UserProvider`. The error only shows up in integration tests (or at
 runtime if test coverage is poor). 
  
-When using `safe-provide`'s `safeProvide` we get a 
+When using `safe-provide`'s `safeProvide` function we get a 
 compile-time check that `HttpUserProvider` implements `UserProvider`. 
  
     safeProvide(UserProviderToken).useClass(HttpUserProvider);
@@ -49,10 +49,10 @@ the `HttpUserProvider` class for the `UserProvider` interface.
         bootstrap(AppComponent, [
             safeProvide(UserProviderToken).useClass(HttpUserProvider)
         ]);
-    The `safeProvide` can be used anywhere angular allows providers. 
-    Unlike with the Angular `provide` function, compilation will fail if 
-    the `HttpUserProvider` does not implicitly or explicitly implement 
-    `UserProvider`. We also have the option of providing a value
+    The `safeProvide` function can be used anywhere angular allows provider 
+    configuration. Unlike with the Angular `provide` function, compilation 
+    will fail if the `HttpUserProvider` does not implicitly or explicitly 
+    implement `UserProvider`. We also have the option of providing a value
     
         safeProvide(UserProviderToken).useValue(new HttpUserProvider())
         
@@ -72,15 +72,3 @@ the `HttpUserProvider` class for the `UserProvider` interface.
             constructor(@Inject(UserProviderToken) private userProvider:UserProvider) {
             }
         }
- 
-## More examples
-
-You can see an example project using `safe-provide` 
-[here](https://github.com/tygern/hudson).
-
-## Build instructions
-```
-npm install
-typings install
-npm run build
-```

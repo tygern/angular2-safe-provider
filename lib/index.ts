@@ -1,5 +1,3 @@
-import {provide, Provider} from "@angular/core";
-
 export class SafeToken<T> {
     constructor(private name: string){}
 
@@ -11,16 +9,16 @@ export class SafeToken<T> {
 export function safeProvide<T>(token:SafeToken<T>) {
 
     return {
-        useClass<U extends T>(Klass:{new(...args:any[]):U;}): Provider {
-            return provide(token, {useClass: Klass});
+        useClass<U extends T>(Klass:{new(...args:any[]):U;}) {
+            return {provide: token, useClass: Klass};
         },
 
-        useValue<U extends T>(value:U): Provider {
-            return provide(token, {useValue: value});
+        useValue<U extends T>(value:U) {
+            return {provide: token, useValue: value};
         },
 
-        useFactory<U extends T>(factory:(...args:any[]) => U): Provider {
-            return provide(token, {useFactory: factory});
+        useFactory<U extends T>(factory:(...args:any[]) => U) {
+            return {provide: token, useFactory: factory};
         }
     };
 }
